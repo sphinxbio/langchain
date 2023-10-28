@@ -1,7 +1,7 @@
 from langchain.chains import create_tagging_chain
 from langchain_experimental.llms.anthropic_functions import AnthropicFunctions
 
-model = AnthropicFunctions(model='claude-2')
+model = AnthropicFunctions(model="claude-2")
 
 schema = {
     "properties": {
@@ -11,5 +11,5 @@ schema = {
     }
 }
 
-# This is LLMChain, which implements invoke 
+# This is LLMChain, which implements invoke
 chain = create_tagging_chain(schema, model)

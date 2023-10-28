@@ -2,9 +2,7 @@ from typing import List
 
 
 def _list_indices(database, include_indices=None, ignore_indices=None) -> List[str]:
-    all_indices = [
-        index["index"] for index in database.cat.indices(format="json")
-    ]
+    all_indices = [index["index"] for index in database.cat.indices(format="json")]
 
     if include_indices:
         all_indices = [i for i in all_indices if i in include_indices]
@@ -12,6 +10,7 @@ def _list_indices(database, include_indices=None, ignore_indices=None) -> List[s
         all_indices = [i for i in all_indices if i not in ignore_indices]
 
     return all_indices
+
 
 def get_indices_infos(database, sample_documents_in_index_info=5) -> str:
     indices = _list_indices(database)

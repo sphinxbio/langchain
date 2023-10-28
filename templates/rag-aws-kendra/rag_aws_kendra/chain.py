@@ -22,15 +22,11 @@ model = Bedrock(
     model_id="anthropic.claude-v2",
     region_name=region,
     credentials_profile_name=profile,
-    model_kwargs={'max_tokens_to_sample': 200}
+    model_kwargs={"max_tokens_to_sample": 200},
 )
 
 # Create Kendra retriever
-retriever = AmazonKendraRetriever(
-    index_id=kendra_index, 
-    top_k=5, 
-    region_name=region
-)
+retriever = AmazonKendraRetriever(index_id=kendra_index, top_k=5, region_name=region)
 
 # RAG prompt
 template = """Answer the question based only on the following context:
